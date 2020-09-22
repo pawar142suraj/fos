@@ -1,0 +1,9 @@
+Adding heade   r
+Hello
+
+
+<<<<<<< HEAD
+adding very bad line new line 
+=======
+adding very bad lin e
+>>>>>>> bad
