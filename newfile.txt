@@ -5,4 +5,5 @@ Hello
 
 adding very bad lin e
 
-stashing example2
+stashing example1
+
