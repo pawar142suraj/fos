@@ -13,6 +13,7 @@ attributes = []
 
 count = 0
 
+#1. Who won _____ (Bronze/Gold) in the year ______?
 if question == 1:
     print("Enter the type of medal(Bronze/Gold/Silver) and the year\n")
     attributes = input().split(' ')
@@ -31,7 +32,7 @@ if question == 1:
     else:
         print("Enter appropriate data")
 
-
+#2. How many prizes were awarded for _______(Country) in the year ________?
 elif question == 2:
     print("Enter the name of the country and the year\n")
     attributes = input().split(' ')
@@ -44,24 +45,25 @@ elif question == 2:
         if flag:
             print("No data for this year, Please enter the right country or year")
         else:
-            print(count)
+            print(f"{count} prizes were awarded for {attributes[0].upper()[:3]} in the year {attributes[1]}")
     else:
         print("Enter appropriate data")
 
+#3. Where was it held in the year __________?
 elif question == 3:
     print("Enter the year you wish to know where it held in\n")
     attributes = input().split(' ')
     flag =1
     for x in rows:
         if x[0] == attributes[0]:
-            print(x[1])
+            print(f"It was held at {x[1]} in the year {attributes[0]}")
             flag=0
             break
     if flag:
         print("No data for this year, Please enter the right year")
 
 
-
+#4. How many prizes did __________(Country) get? When, where?
 elif question == 4:
     print("Enter the name of the country\n")
     attributes = input().lower()
@@ -82,16 +84,17 @@ elif question == 4:
 
         when = list(set(when))
         for i in when:
-            print(
-                f"The country {attributes[:3].upper()} won {lookup_2[i]} prizes in the city {lookup_1[i]} which was held in the year {i} ")
+            print(f"The country {attributes[:3].upper()} won {lookup_2[i]} prizes in the city {lookup_1[i]} which was held in the year {i} ")
     else:
         print("Enter a valid country name")
 
+#5. Who won women’s ________ in _______?
 elif question == 5:
     flag = 1
     print("Enter the sport's discipline and the year\n")
     attributes = input().split(' ')
     if len(attributes) == 2:
+        print(f"The women won any medals for {attributes[0]} in the year {attributes[1]} are :")
         for x in rows:
             if x[3].lower() == attributes[0].lower() and x[0] == attributes[1] and x[-3] == 'Women':
                 print(x[4])
