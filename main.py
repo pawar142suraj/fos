@@ -7,25 +7,27 @@ with open("summer.csv", 'r') as f:
     header = next(csvreader)
     for row in csvreader:
         rows.append(row)
-print("Please enter numbers 1,2,3,4 or 5 for the following questions:\n1. Who won _____ (Bronze/Gold) in the year ______? \n2. How many prizes were awarded for _______(Country) in the year ________?\n3. Where was it held in the year __________?\n4. How many prizes did __________(Country) get? When, where?\n5. Who won women’s ________ in _______?")
+print("Please enter numbers 1,2,3,4 or 5 for the following questions:\n1. Who won _____ (Bronze/Gold) in the year ______? \n2. How many prizes were awarded for _______(Country) in the year ________?\n3. Where was it held in the year __________?\n4. How many prizes did __________(Country) get? When, where?\n5. Who won women’s ________ in _______?\n")
 question = int(input())
 attributes = []
-country = []
+
 count = 0
 
 if question == 1:
     print("Enter the type of medal(Bronze/Gold/Silver) and the year\n")
     attributes = input().split(' ')
     flag=1
+    atheletes=[]
     if len(attributes) == 2:
         for x in rows:
             if x[0] == attributes[1] and x[-1] == attributes[0]:
-                country.append(x[1])
+                atheletes.append(x[4])
                 flag=0
         if flag:
             print("Enter appropriate data")
         else:
-            print(list(set(country)))
+            print(f"The atheletes who won {attributes[0]} in {attributes[1] } are \n{list(set(atheletes))}")
+            print(len(list(set(atheletes))))
     else:
         print("Enter appropriate data")
 
